@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<!-- ========================================================================= -->
+<!-- ABERTURA DA TAG HEAD: ESPAÇO RESERVADO PARA O SNIPPET DO GTM (SCRIPT)     -->
+<!-- Insira o código do Google Tag Manager o mais alto possível dentro do <head> -->
+<!-- ========================================================================= -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transformação Analítica | DP6 Style</title>
+    
+    <!-- CSS INTERNO: Design System Inspirado na DP6 (Tons de azul, limpo e focado em dados) -->
+    <style>
+        /* Reset básico e tipografia moderna */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #F4F7F9; /* Fundo claro acinzentado */
+            color: #333333; /* Texto escuro para contraste */
+            line-height: 1.6;
+        }
+
+        /* Paleta de Cores Institucional (Inspiração DP6) */
+        :root {
+            --dp6-blue-dark: #002244;
+            --dp6-blue-primary: #0055A5;
+            --dp6-blue-light: #00A7E1;
+            --dp6-white: #FFFFFF;
+            --dp6-gray: #666666;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--dp6-blue-dark);
+            color: var(--dp6-white);
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--dp6-white);
+            text-decoration: none;
+        }
+
+        header nav a {
+            color: var(--dp6-white);
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        header nav a:hover {
+            color: var(--dp6-blue-light);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--dp6-blue-primary) 0%, var(--dp6-blue-dark) 100%);
+            color: var(--dp6-white);
+            padding: 80px 5%;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+            color: #DDEEFE;
+        }
+
+        .btn {
+            background-color: var(--dp6-blue-light);
+            color: var(--dp6-white);
+            padding: 15px 30px;
+            text-decoration: none;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background-color: #008CBE;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 60px 5%;
+            text-align: center;
+            background-color: var(--dp6-white);
+        }
+
+        .services h2 {
+            color: var(--dp6-blue-dark);
+            margin-bottom: 40px;
+            font-size: 32px;
+        }
+
+        .service-cards {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background-color: #F9FBFC;
+            border: 1px solid #E0E6ED;
+            padding: 30px;
+            border-radius: 8px;
+            width: 300px;
+            text-align: left;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .card h3 {
+            color: var(--dp6-blue-primary);
+            margin-bottom: 15px;
+        }
+
+        .card a {
+            color: var(--dp6-blue-light);
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 15px;
+        }
+
+        /* Form Section */
+        .lead-section {
+            padding: 60px 5%;
+            background-color: #EAF2F8;
+            display: flex;
+            justify-content: center;
+        }
+
+        .form-container {
+            background-color: var(--dp6-white);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .form-container h2 {
+            color: var(--dp6-blue-dark);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: var(--dp6-gray);
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #CCC;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--dp6-blue-light);
+        }
+
+        .submit-btn {
+            width: 100%;
+            background-color: var(--dp6-blue-primary);
+        }
+
+        .submit-btn:hover {
+            background-color: var(--dp6-blue-dark);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dp6-blue-dark);
+            color: var(--dp6-white);
+            text-align: center;
+            padding: 20px 5%;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: var(--dp6-blue-light);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<!-- ========================================================================= -->
+<!-- FECHAMENTO DA TAG HEAD / ABERTURA DA TAG BODY                             -->
+<!-- Logo após a abertura do <body>, insira o snippet do GTM (noscript)        -->
+<!-- ========================================================================= -->
+<body>
+    <!-- Google Tag Manager (noscript) placeholder -->
+    <!-- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> -->
+
+    <!-- Header -->
+    <!-- Utilizando atributos data-* para facilitar a captura de contexto no DataLayer -->
+    <header data-section="lp-header">
+        <a href="#" class="logo" data-type="link-logo" title="Logo Analytics">Analytics Pro</a>
+        <nav>
+            <a href="#servicos" data-type="link-nav" title="Serviços">Serviços</a>
+            <a href="#contato" data-type="link-nav" title="Contato">Contato</a>
+            <a href="#" class="btn" data-type="botao-header" title="Login">Login</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" data-section="lp-hero">
+            <h1>Transforme seus Dados em Decisões Inteligentes</h1>
+            <p>Evolua sua maturidade digital com engenharia de dados, arquitetura cloud e digital analytics avançado.</p>
+            <a href="#contato" class="btn" data-type="botao-hero" title="Falar com Especialista">Falar com um Especialista</a>
+        </section>
+
+        <!-- Serviços Section -->
+        <section id="servicos" class="services" data-section="lp-servicos">
+            <h2>Nossos Diferenciais</h2>
+            <div class="service-cards">
+                <div class="card">
+                    <h3>Digital Analytics</h3>
+                    <p>Coleta, estruturação e análise de dados comportamentais para otimização de conversão.</p>
+                    <a href="#" data-type="link-card" title="Saiba mais Digital Analytics">Saiba mais &rarr;</a>
+                </div>
+                <div class="card">
+                    <h3>Engenharia de Dados</h3>
+                    <p>Construção de Data Lakes e automação de pipelines para unificar sua visão de negócios.</p>
+                    <a href="#" data-type="link-card" title="Saiba mais Engenharia">Saiba mais &rarr;</a>
+                </div>
+                <div class="card">
+                    <h3>Marketing Science</h3>
+                    <p>Modelagem de atribuição e MMM (Marketing Mix Modeling) para maximizar o ROI.</p>
+                    <a href="#" data-type="link-card" title="Saiba mais Marketing Science">Saiba mais &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Formulário Section -->
+        <section id="contato" class="lead-section" data-section="lp-formulario">
+            <div class="form-container">
+                <h2>Baixe nosso Whitepaper</h2>
+                <!-- Formulário com ID para capturarmos o evento de submit via JavaScript -->
+                <form id="lead-form">
+                    <div class="form-group">
+                        <label for="nome">Nome Completo</label>
+                        <input type="text" id="nome" name="nome" placeholder="Ex: João Silva">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail Corporativo</label>
+                        <input type="email" id="email" name="email" placeholder="joao@empresa.com.br">
+                    </div>
+                    <div class="form-group">
+                        <label for="cargo">Cargo / Empresa</label>
+                        <input type="text" id="cargo" name="cargo" placeholder="Gerente de Dados / TechCorp">
+                    </div>
+                    <!-- O botão não dispara o clique genérico, pois a lógica de validação do submit o interceptará -->
+                    <button type="submit" class="btn submit-btn" data-type="submit" title="Baixar Material">Baixar Material</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer data-section="lp-footer">
+        <p>&copy; 2026 Analytics Pro. Inspirado na excelência em dados. <a href="#" data-type="link-footer" title="Politica de Privacidade">Política de Privacidade</a>.</p>
+    </footer>
+
+    <!-- ========================================================================= -->
+    <!-- SCRIPT DO DATALAYER E TRACKING                                            -->
+    <!-- Lógica pedagógica e profissional para disparo de eventos analíticos       -->
+    <!-- ========================================================================= -->
+    <script>
+        /**
+         * Inicialização do DataLayer
+         * Garante que o array window.dataLayer exista para não quebrar a página
+         */
+        window.dataLayer = window.dataLayer || [];
+
+        /**
+         * Função de Sanitização Estrita
+         * Regras aplicadas:
+         * 1. Transforma em caixa baixa (lowercase)
+         * 2. Remove acentos usando decomposição unicode (NFD)
+         * 3. Remove caracteres especiais (deixa apenas letras, números, espaços e hifens)
+         * 4. Remove espaços extras nas pontas (trim)
+         * 5. Substitui todos os espaços internos por hífen (-)
+         */
+        function sanitizeString(str) {
+            if (!str) return 'valor-indefinido';
+            
+            return str.toString().toLowerCase()
+                .normalize('NFD')                     // Decompõe caracteres acentuados
+                .replace(/[\u0300-\u036f]/g, '')      // Remove os acentos
+                .replace(/[^a-z0-9\s-]/g, '')         // Remove caracteres especiais
+                .trim()                               // Remove espaços no início e fim
+                .replace(/\s+/g, '-');                // Substitui espaços por hífen
+        }
+
+        /**
+         * Função centralizada para disparar eventos no DataLayer
+         * Utiliza o padrão exato exigido na especificação.
+         */
+        function pushDataLayerEvent(section, type, title) {
+            const trackingObject = {
+                'event': 'clique',
+                'custom_section': sanitizeString(section),
+                'custom_type': sanitizeString(type),
+                'custom_title': sanitizeString(title)
+            };
+            
+            // Disparo para o dataLayer
+            window.dataLayer.push(trackingObject);
+            
+            // Log no console apenas para fins pedagógicos/depuração
+            console.log('🏁 [DataLayer Push]:', trackingObject);
+        }
+
+        /**
+         * Lógica 1: Rastreamento de Cliques Genéricos (Links e Botões)
+         * Utilizamos "Event Delegation" no elemento <body> para capturar cliques de forma dinâmica.
+         */
+        document.body.addEventListener('click', function(event) {
+            // Verifica se o clique ocorreu em um <a>, <button> ou dentro deles
+            const targetElement = event.target.closest('a, button');
+            
+            if (!targetElement) return; // Se não for link ou botão, encerra a função
+
+            // Se for um botão de submit de formulário, ignoramos aqui.
+            // A lógica de form submit (com validação) tratará isso separadamente.
+            if (targetElement.type === 'submit') return;
+
+            // Busca a seção (subindo na árvore do DOM até encontrar o data-section)
+            const sectionContainer = targetElement.closest('[data-section]');
+            const rawSection = sectionContainer ? sectionContainer.getAttribute('data-section') : 'lp-geral';
+            
+            // Busca o tipo do elemento via data-type ou infere pela tag HTML
+            const rawType = targetElement.getAttribute('data-type') || (targetElement.tagName.toLowerCase() === 'a' ? 'link' : 'botao');
+            
+            // Busca o título do elemento (prioridade: title attr > texto interno > fallback)
+            const rawTitle = targetElement.getAttribute('title') || targetElement.textContent || 'elemento-sem-nome';
+
+            // Chama a função que sanitiza e envia o push
+            pushDataLayerEvent(rawSection, rawType, rawTitle);
+        });
+
+        /**
+         * Lógica 2: Rastreamento de Submissão de Formulário (Com Regra de Negócio)
+         * O DataLayer SÓ deve disparar se TODOS os campos estiverem preenchidos.
+         */
+        const leadForm = document.getElementById('lead-form');
+        
+        if (leadForm) {
+            leadForm.addEventListener('submit', function(event) {
+                // Previne o envio real da página para fins pedagógicos
+                event.preventDefault();
+
+                // Captura os valores dos campos básicos
+                const nomeInput = document.getElementById('nome').value.trim();
+                const emailInput = document.getElementById('email').value.trim();
+                const cargoInput = document.getElementById('cargo').value.trim();
+
+                // IMPORTANTE 1: Verifica se TODOS os campos foram preenchidos
+                if (nomeInput !== '' && emailInput !== '' && cargoInput !== '') {
+                    
+                    // Sucesso: Resgata informações para o DataLayer
+                    const sectionContainer = this.closest('[data-section]');
+                    const rawSection = sectionContainer ? sectionContainer.getAttribute('data-section') : 'lp-formulario';
+                    
+                    const submitBtn = this.querySelector('button[type="submit"]');
+                    const rawType = submitBtn ? submitBtn.getAttribute('data-type') : 'submit';
+                    const rawTitle = submitBtn ? submitBtn.getAttribute('title') : 'enviar-formulario';
+
+                    // Efetua o Push validado
+                    pushDataLayerEvent(rawSection, rawType, rawTitle);
+                    
+                    alert('Formulário enviado com sucesso! Evento disparado no dataLayer. (Verifique o Console)');
+                    
+                    // Limpa o formulário após o envio simulado
+                    this.reset();
+                } else {
+                    // Falha na validação: O evento NÃO é disparado.
+                    alert('Por favor, preencha todos os campos do formulário para enviar.');
+                    console.warn('⚠️ [DataLayer Blocked]: Tentativa de envio com campos em branco. Evento não disparado.');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
